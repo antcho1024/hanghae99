@@ -36,6 +36,7 @@
             justify-content: center;
             align-items: center;
         }
+
         .mypost {
             max-width: 500px;
             width: 95%;
@@ -44,65 +45,83 @@
             box-shadow: 0px 0px 3px 0px gray;
             padding: 20px;
         }
-        .mypost > button{
+
+        .mypost > button {
             margin-top: 10px;
         }
-        .wrap{
+
+        .wrap {
             max-width: 500px;
             width: 95%;
             margin: 20px auto 0px auto;
         }
-        .wrap>.card{
+
+        .wrap > .card {
             margin-top: 10px;
         }
     </style>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                type: "GET",
+                url: "http://spartacodingclub.shop/sparta_api/weather/seoul",
+                data: {},
+                success: function (response) {
+                    $('#temp').text(response['temp'])
+                }
+            })
+        });
+
+    </script>
 </head>
 
 <body>
-    <div class="mytitle">
-        <h1>달콩이 팬명록</h1>
-        <h5>알콩이만 작성 가능!</h5>
+<div class="mytitle">
+    <h1>달콩이 팬명록</h1>
+    <h5>알콩이만 작성 가능!</h5>
+    <P></P>
+    <p>현재 기온 : <span id="temp">00.0</span>도</p>
 
-    </div>
-    <div class="mypost">
-        <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">닉네임</label>
-        </div>
-
-        <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-            <label for="floatingTextarea">사랑 메세지</label>
-        </div>
-       <button type="button" class="btn btn-dark">기록하기</button>
+</div>
+<div class="mypost">
+    <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">닉네임</label>
     </div>
 
-    <div class="wrap">
-        <div class="card">
-            <div class="card-body">
-                <blockquote class="blockquote mb-0">
-                    <p>사랑해</p>
-                    <footer class="blockquote-footer">혜수</footer>
-                </blockquote>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <blockquote class="blockquote mb-0">
-                    <p>사랑해</p>
-                    <footer class="blockquote-footer">혜수</footer>
-                </blockquote>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <blockquote class="blockquote mb-0">
-                    <p>사랑해</p>
-                    <footer class="blockquote-footer">혜수</footer>
-                </blockquote>
-            </div>
+    <div class="form-floating">
+        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+        <label for="floatingTextarea">사랑 메세지</label>
+    </div>
+    <button type="button" class="btn btn-dark">기록하기</button>
+</div>
+
+<div class="wrap">
+    <div class="card">
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>사랑해</p>
+                <footer class="blockquote-footer">혜수</footer>
+            </blockquote>
         </div>
     </div>
+    <div class="card">
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>사랑해</p>
+                <footer class="blockquote-footer">혜수</footer>
+            </blockquote>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>사랑해</p>
+                <footer class="blockquote-footer">혜수</footer>
+            </blockquote>
+        </div>
+    </div>
+</div>
 
 </body>
 
