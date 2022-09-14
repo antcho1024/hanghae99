@@ -48,24 +48,20 @@
 
         }
 
+
     </style>
     <script>
-        function gotoplace() {
-            alert('해당 페이지로 이동')
+        function gotopage2() {
+            location.href = 'index02.html'
         }
 
-        function enterkey() {
-            if (window.event.keyCode == 13) {
-                alert('요청이 완료되었습니다.')
-            }
-        }
     </script>
 </head>
 
 <body>
 <div class="mytitle">
     <h1>여행 어디 갈래?</h1>
-    <button type="button" class="btn btn-outline-warning">지금 바로 Go !</button>
+    <button onclick="gotopage2()" type="button" class="btn btn-outline-warning">지금 바로 Go !</button>
 
 <!--    <span class="font1">여행</span>-->
 </div>

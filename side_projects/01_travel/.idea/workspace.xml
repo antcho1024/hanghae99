@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76fac2e4-a6dc-46f9-a4d6-e5acd89ae1e8" name="변경" comment="" />
+    <list default="true" id="76fac2e4-a6dc-46f9-a4d6-e5acd89ae1e8" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/01_travel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/01_travel.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index01.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index01.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index02.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index02.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../sparta/projects/homework/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../sparta/projects/homework/app.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,11 +43,12 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/cho/Desktop/Web_Projects/hanghae99/sparta_window/projects/bucket",
+    "last_opened_file_path": "/Users/cho/Desktop/hanghae99/side_projects/01_travel",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
@@ -54,6 +62,7 @@
       <workItem from="1663086198704" duration="5047000" />
       <workItem from="1663091297918" duration="2000" />
       <workItem from="1663117193451" duration="302000" />
+      <workItem from="1663135316936" duration="1787000" />
     </task>
     <servers />
   </component>
