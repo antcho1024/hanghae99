@@ -77,6 +77,7 @@
             max-width: 500px;
             margin: 20px auto 0px auto;
             padding: 20px;
+
         }
 
         .place-image {
@@ -91,31 +92,84 @@
             height: 100%;
             object-fit: cover;
         }
-        .place-wrap{
+
+        .place-wrap {
             width: 200px;
-            height: 200px;
+            height: 180px;
             position: relative;
             border-radius: 70%;
             margin-right: 30px;
         }
 
-        .place-text{
+        .place-text {
             color: white;
             position: absolute;
             top: 45%;
             left: 35%;
             font-size: 30px;
         }
+
+        .mybtns {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+            margin-top: 20px;
+        }
+
+        .mybtns > button {
+            margin-right: 10px;
+        }
     </style>
     <script>
+        $(document).ready(function () {
+            show();
+        });
+
+        function show() {
+            $.ajax({
+                type: "GET",
+                url: "/trip_show",
+                data: {},
+                success: function (response) {
+                    console.log(response)
+                    rows = response['places']
+                    for(let i = 0; i< rows.length;i++){
+                        let name = rows[i]['name']
+                        let img =rows[i]['img']
+
+                        temp_html = `<div onclick="gotoplace()" class="place-wrap _hover">
+                                        <div class="place-image" style="background: #BDBDBD;">
+                                            <img class="place-profile" src="${img}">
+                                        </div>
+                                        <div class="place-text">
+                                            <p>${name}</p>
+                                        </div>
+                                    </div>`
+                        $('#post-box').append(temp_html)
+                    }
+                }
+            })
+        }
+
         function gotoplace() {
             alert('해당 페이지로 이동')
         }
 
-        function enterkey() {
-            if (window.event.keyCode == 13) {
-                alert('요청이 완료되었습니다.')
-            }
+        function save_new() {
+            let name = $('#place-order-name').val()
+            let url = $('#place-order-url').val()
+            $.ajax({
+                type: 'POST',
+                url: '/trip_save',
+                data: {url_give: url, name_give: name},
+                success: function (response) {
+                    window.location.reload()
+                }
+            });
+
+
         }
     </script>
 </head>
@@ -127,86 +181,23 @@
 <div class="add_place">
     <div class="input-group flex-nowrap">
         <span class="input-group-text" id="addon-wrapping">지역 검색하기</span>
-        <input type="text" class="form-control" placeholder="  지역을 입력해주세요" aria-label="Username"
-               aria-describedby="addon-wrapping" onkeyup="enterkey()">
+        <input id="place-order-name" type="text" class="form-control" placeholder="  지역 이름을 입력해주세요"
+               aria-label="Username"
+               aria-describedby="addon-wrapping">
     </div>
+    <div class="input-group flex-nowrap">
+        <span class="input-group-text" id="addon-wrapping2">지역 url</span>
+        <input id="place-order-url" type="text" class="form-control" placeholder="  url을 입력해주세요" aria-label="Username"
+               aria-describedby="addon-wrapping">
+    </div>
+
+    <div class="mybtns">
+        <button onclick="save_new()" type="button" class="btn btn-dark">기록하기</button>
+    </div>
+
 </div>
 
-<div class="mypost row row-cols-1 row-cols-md-3 g-4">
-    <div onclick="gotoplace()" class="place-wrap _hover">
-        <div class="place-image" style="background: #BDBDBD;">
-            <img class="place-profile" src="https://cdn.gjdream.com/news/photo/202209/617791_218140_945.jpg">
-        </div>
-        <div class="place-text">
-            <p>부산</p>
-        </div>
-    </div>
-<!--    <div onclick="gotoplace()" class="place-wrap _hover">-->
-<!--        <div class="place-image" style="background: #BDBDBD;">-->
-<!--            <img class="place-profile" src="https://cdn.gjdream.com/news/photo/202209/617791_218140_945.jpg">-->
-<!--        </div>-->
-<!--        <div class="place-text">-->
-<!--            <p>여수</p>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <div onclick="gotoplace()" class="place-wrap _hover">-->
-<!--        <div class="place-image" style="background: #BDBDBD;">-->
-<!--            <img class="place-profile" src="https://cdn.gjdream.com/news/photo/202209/617791_218140_945.jpg">-->
-<!--        </div>-->
-<!--        <div class="place-text">-->
-<!--            <p>제주도</p>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <div onclick="gotoplace()" class="place-wrap _hover">-->
-<!--        <div class="place-image" style="background: #BDBDBD;">-->
-<!--            <img class="place-profile" src="https://cdn.gjdream.com/news/photo/202209/617791_218140_945.jpg">-->
-<!--        </div>-->
-<!--        <div class="place-text">-->
-<!--            <p>강릉</p>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <div onclick="gotoplace()" class="place-wrap _hover">-->
-<!--        <div class="place-image" style="background: #BDBDBD;">-->
-<!--            <img class="place-profile" src="https://cdn.gjdream.com/news/photo/202209/617791_218140_945.jpg">-->
-<!--        </div>-->
-<!--        <div class="place-text">-->
-<!--            <p>강릉</p>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <div onclick="gotoplace()" class="place-wrap _hover">-->
-<!--        <div class="place-image" style="background: #BDBDBD;">-->
-<!--            <img class="place-profile" src="https://cdn.gjdream.com/news/photo/202209/617791_218140_945.jpg">-->
-<!--        </div>-->
-<!--        <div class="place-text">-->
-<!--            <p>강릉</p>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <div onclick="gotoplace()" class="place-wrap _hover">-->
-<!--        <div class="place-image" style="background: #BDBDBD;">-->
-<!--            <img class="place-profile" src="https://cdn.gjdream.com/news/photo/202209/617791_218140_945.jpg">-->
-<!--        </div>-->
-<!--        <div class="place-text">-->
-<!--            <p>강릉</p>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <div onclick="gotoplace()" class="place-wrap _hover">-->
-<!--        <div class="place-image" style="background: #BDBDBD;">-->
-<!--            <img class="place-profile" src="https://cdn.gjdream.com/news/photo/202209/617791_218140_945.jpg">-->
-<!--        </div>-->
-<!--        <div class="place-text">-->
-<!--            <p>강릉</p>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <div onclick="gotoplace()" class="place-wrap _hover">-->
-<!--        <div class="place-image" style="background: #BDBDBD;">-->
-<!--            <img class="place-profile" src="https://cdn.gjdream.com/news/photo/202209/617791_218140_945.jpg">-->
-<!--        </div>-->
-<!--        <div class="place-text">-->
-<!--            <p>강릉</p>-->
-<!--        </div>-->
-<!--    </div>-->
-
-
+<div id="post-box" class="mypost row row-cols-1 row-cols-md-3 g-4">
 
 </div>
 
