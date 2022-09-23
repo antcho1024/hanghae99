@@ -1,26 +1,25 @@
 import java.util.Scanner;
-
 public class Solution {
-    public String solution(String s) {
-        String answer = "";
-        int a=0;
-        int len = s.length();
-        a=len/2;
-        if(len%2==0)
-        {
-            answer = s.substring(a-1,a+1);
+    public long solution(long a, long b) {
+        long answer = 0;
+        if(a==b) return a;
+        else if (a>b) {
+            long tmp = a;
+            a= b;
+            b= tmp;
         }
-        else {
-            answer = s.substring(a,a+1)
-;       }
+        for(long i = a; i<=b ; i++){
+            answer +=i;
+        }
         return answer;
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String str = sc.next();
+        long a = sc.nextLong();
+        long b = sc.nextLong();
         Solution sol = new Solution();
-        System.out.println(sol.solution(str));
+        System.out.println(sol.solution(a,b));
 
     }
 }
