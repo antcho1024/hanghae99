@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Hello {
+public class Solution {
     public String solution(int num) {
         String answer = "";
         if(num%2==0){
@@ -15,7 +15,7 @@ public class Hello {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int num = sc.nextInt();
-        Hello hello = new Hello();
+        Solution hello = new Solution();
         System.out.println(hello.solution(num));
 
     }
