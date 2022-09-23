@@ -1,17 +1,21 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 public class Solution {
-    public int solution(String s) {
-        int answer = 0;
-        answer = Integer.parseInt(s);
+    public long[] solution(int x, int n) {
+        long[] answer = new long[n];
+        for(int i=0; i<n;i++){
+
+            answer[i] = (long)x + i*(long)x;
+            System.out.println(answer[i]);
+        }
         return answer;
     }
 
-
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String s = sc.next();
+        int a=0;
+        int n=2;
+//        int[][] b = new int[][] {{3,4},{5,6}};
         Solution sol = new Solution();
-        System.out.println(sol.solution(s));
-
+        sol.solution(a,n);
     }
 }
