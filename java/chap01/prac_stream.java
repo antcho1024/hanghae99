@@ -17,7 +17,7 @@ class Sale {
         this.discount = discount;
     }
 }
-public class Hello {
+public class prac_stream {
     public static void main(String[] args) {
 
         //예제 1 (리스트 -> 스트링 변환)
