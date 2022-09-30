@@ -13,18 +13,10 @@ abstract class PublicTransport{
         this.maxPassenger = maxPassenger;
         this.number = number;
     }
-
-
-    // 속도 변경
-    abstract void ChangeSpeed(int speedChange );
     // 상태 변경 (운행 시작 포함)
     public void ChangeState(int state){
         this.state = state;
         if(state!=1) passenger =0; //차고지행 또는 일반으로 변경시 승객 0명으로 초기화
     }
-    // 상태 출력
-    abstract void PrintState();
-    // 주유량 변경
-    abstract void ChangeFuel(int amount);
 
 }

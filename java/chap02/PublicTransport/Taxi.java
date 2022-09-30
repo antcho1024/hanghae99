@@ -1,5 +1,5 @@
 package PublicTransport;
-class Taxi extends PublicTransport{
+class Taxi extends PublicTransport implements PublicTransport_method{
     public String destination ="";
     public int distance;
     public int basicDistance = 1;

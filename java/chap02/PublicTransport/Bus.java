@@ -1,5 +1,5 @@
 package PublicTransport;
-class Bus extends PublicTransport{
+class Bus extends PublicTransport implements PublicTransport_method{
     // static int bus_number_cnt =0; // 버스의 모든 객체가 공유하면서 사용 -> 버스 number로 사용시 고유 번호 생성 가능
     public int fee = 1000;      // 요금
     Bus(String number){
