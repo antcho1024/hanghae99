@@ -2,6 +2,7 @@ package com.sparta.week01_2;
 
 import com.sparta.week01_2.domain.Course;
 import com.sparta.week01_2.domain.CourseRepository;
+import com.sparta.week01_2.domain.CourseRequestDto;
 import com.sparta.week01_2.service.CourseService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -33,8 +34,8 @@ public class Week012Application {
 				System.out.println(course.getTutor());
 			}
 
-			Course new_c = new Course("python", "C");
-			courseService.update(1l,new_c);
+			CourseRequestDto new_c = new CourseRequestDto ("python", "C");
+			courseService.update(1L,new_c);
 
 			courseList = repository.findAll();
 			for(int i=0; i<courseList.size(); i++){
@@ -44,7 +45,6 @@ public class Week012Application {
 				System.out.println(course.getTitle());
 				System.out.println(course.getTutor());
 			}
-
 		};
 	}
 }

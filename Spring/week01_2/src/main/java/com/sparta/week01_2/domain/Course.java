@@ -26,11 +26,13 @@ public class Course extends Timestamped {
         this.title = title;
         this.tutor = tutor;
     }
-    public Long getId() {return id;}
-    public String getTitle() {return title;}
-    public String getTutor() {return tutor;}
-    public void update(Course course) {
-        this.title = course.title;
-        this.tutor = course.tutor;
+    public Course(CourseRequestDto requestDto) {
+        this.title = requestDto.getTitle();
+        this.tutor = requestDto.getTutor();
+    }
+
+    public void update(CourseRequestDto requestDto) {
+        this.title = requestDto.getTitle();
+        this.tutor = requestDto.getTutor();
     }
 }
