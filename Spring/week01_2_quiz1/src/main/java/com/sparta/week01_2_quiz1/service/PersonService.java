@@ -8,13 +8,10 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 
-//@RequiredArgsConstructor
+@RequiredArgsConstructor
 @Service
 public class PersonService {
     private final PersonRepository personRepository; //!!!!!!!!!!
-    public PersonService(PersonRepository personRepository) {
-        this.personRepository = personRepository;
-    }
     @Transactional
     public Long update(Long id, PersonRequestDto personRequestDto){
         System.out.println("---");
