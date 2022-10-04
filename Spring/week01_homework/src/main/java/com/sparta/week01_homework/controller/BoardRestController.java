@@ -2,6 +2,7 @@ package com.sparta.week01_homework.controller;
 
 import com.sparta.week01_homework.domain.Board;
 import com.sparta.week01_homework.domain.BoardRepository;
+import com.sparta.week01_homework.dto.BoardPasswordDto;
 import com.sparta.week01_homework.dto.BoardRequestDto;
 import com.sparta.week01_homework.service.BoardService;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +18,7 @@ public class BoardRestController {
 
     @GetMapping("/api/post")
     public List<Board> getPosts() {
-        return boardRepository.findAll();
+        return boardRepository.findAllByOrderByCreatedAtDesc();
     }
     @GetMapping("/api/post/{id}")
     public Board getPostOne(@PathVariable Long id) {
@@ -31,11 +32,10 @@ public class BoardRestController {
         Board board = new Board(boardRequestDto);
         return boardRepository.save(board);
     }
-//    비밀번호 확인
-//    @PostMapping("/api/post/{id}")
-//    public Boolean checkPassword(@RequestBody BoardRequestDto boardRequestDto) {
-//        return new Board(boardRequestDto);
-//    }
+    @PostMapping("/api/post/{id}")
+    public Boolean checkPassword(@PathVariable Long id, @RequestBody BoardPasswordDto boardPasswordDto) {
+        return boardService.checkPassword(id, boardPasswordDto);
+    }
     @PutMapping("/api/post/{id}")
     public Long update(@PathVariable Long id, @RequestBody BoardRequestDto boardRequestDto){
         return boardService.update(id, boardRequestDto);

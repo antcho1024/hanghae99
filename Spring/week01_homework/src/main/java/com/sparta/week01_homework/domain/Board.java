@@ -4,8 +4,10 @@ import com.sparta.week01_homework.dto.BoardRequestDto;
 import com.sparta.week01_homework.entity.Timestamped;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
+
 
 @Getter
 @Entity
@@ -27,6 +29,12 @@ public class Board extends Timestamped {
     @Column (nullable = false)
     private String content;
 
+    public Board(String title, String author, String password, String content){
+        this.title = title;
+        this.author = author;
+        this.password = password;
+        this.content = content;
+    }
     public Board(BoardRequestDto boardRequestDto){
         this.title = boardRequestDto.getTitle();
         this.author = boardRequestDto.getAuthor();

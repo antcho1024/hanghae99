@@ -2,6 +2,7 @@ package com.sparta.week01_homework.service;
 
 import com.sparta.week01_homework.domain.Board;
 import com.sparta.week01_homework.domain.BoardRepository;
+import com.sparta.week01_homework.dto.BoardPasswordDto;
 import com.sparta.week01_homework.dto.BoardRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,13 @@ public class BoardService {
         );
         board.update(requestDto);
         return id;
+    }
+
+    public Boolean checkPassword(Long id, BoardPasswordDto boardPasswordDto){
+        Board board = boardRepository.findById(id).orElseThrow(
+                () -> new NullPointerException("해당 아이디가 존재하지 않습니다.")
+        );
+        return board.getPassword().equals(boardPasswordDto.getPassword());
     }
 
 }
