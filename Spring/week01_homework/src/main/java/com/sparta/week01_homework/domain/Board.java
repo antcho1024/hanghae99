@@ -1,5 +1,6 @@
 package com.sparta.week01_homework.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sparta.week01_homework.dto.BoardRequestDto;
 import com.sparta.week01_homework.entity.Timestamped;
 import lombok.Getter;
@@ -12,7 +13,7 @@ import javax.persistence.*;
 @Getter
 @Entity
 @NoArgsConstructor
-public class Board extends Timestamped {
+public class Board extends Timestamped{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -22,7 +23,7 @@ public class Board extends Timestamped {
 
     @Column (nullable = false)
     private String author;
-
+    @JsonIgnore
     @Column (nullable = false)
     private String password;
 
