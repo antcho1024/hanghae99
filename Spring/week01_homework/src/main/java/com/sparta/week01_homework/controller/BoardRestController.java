@@ -35,7 +35,8 @@ public class BoardRestController {
     @GetMapping("/api/post/category/{category}")
     public List<Board> getCategory(@PathVariable Integer category) {
 //        return boardRepository.findAll(pageable);
-        return boardRepository.findBycategory(boardService.toCategory(category));
+//        return boardRepository.findBycategory(boardService.toCategory(category));
+        return boardRepository.findBycategory(Category.find(category));
     }
     @PostMapping("/api/post")
     public Board createPost(@RequestBody BoardRequestDto boardRequestDto) {
