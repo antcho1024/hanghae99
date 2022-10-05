@@ -28,7 +28,7 @@ public class BoardRestController {
     public Board getPostOne(@PathVariable Long id) {
         //여기 보드 디티오? 그냥 보드?
         return boardRepository.findById(id).orElseThrow(
-                () -> new NullPointerException("해당 아이디가 존재하지 않습니다.")
+                () -> new IllegalArgumentException("해당 아이디가 존재하지 않습니다.")
         );
     }
     @PostMapping("/api/post")

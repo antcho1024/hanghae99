@@ -17,7 +17,7 @@ public class BoardService {
     @Transactional // 메소드 동작이 SQL 쿼리문임을 선언합니다.
     public Long update(Long id, BoardRequestDto requestDto) {
         Board board = boardRepository.findById(id).orElseThrow(
-                () -> new NullPointerException("해당 아이디가 존재하지 않습니다.")
+                () -> new IllegalArgumentException("해당 아이디가 존재하지 않습니다.")
         );
         board.update(requestDto);
         return id;
@@ -25,7 +25,7 @@ public class BoardService {
 
     public Boolean checkPassword(Long id, BoardPasswordDto boardPasswordDto){
         Board board = boardRepository.findById(id).orElseThrow(
-                () -> new NullPointerException("해당 아이디가 존재하지 않습니다.")
+                () -> new IllegalArgumentException("해당 아이디가 존재하지 않습니다.")
         );
         return board.getPassword().equals(boardPasswordDto.getPassword());
     }
