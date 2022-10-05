@@ -1,5 +1,6 @@
 package com.sparta.week01_homework.controller;
 
+import com.sparta.week01_homework.Category;
 import com.sparta.week01_homework.domain.Board;
 import com.sparta.week01_homework.domain.BoardRepository;
 import com.sparta.week01_homework.dto.BoardPasswordDto;
@@ -30,6 +31,11 @@ public class BoardRestController {
         return boardRepository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("해당 아이디가 존재하지 않습니다.")
         );
+    }
+    @GetMapping("/api/post/category/{category}")
+    public List<Board> getCategory(@PathVariable Integer category) {
+//        return boardRepository.findAll(pageable);
+        return boardRepository.findBycategory(boardService.toCategory(category));
     }
     @PostMapping("/api/post")
     public Board createPost(@RequestBody BoardRequestDto boardRequestDto) {
