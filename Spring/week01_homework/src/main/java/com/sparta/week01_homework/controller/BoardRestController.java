@@ -6,6 +6,10 @@ import com.sparta.week01_homework.dto.BoardPasswordDto;
 import com.sparta.week01_homework.dto.BoardRequestDto;
 import com.sparta.week01_homework.service.BoardService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,8 +21,8 @@ public class BoardRestController {
     private final BoardService boardService;
 
     @GetMapping("/api/post")
-    public List<Board> getPosts() {
-        return boardRepository.findAllByOrderByCreatedAtDesc();
+    public Page<Board> getPosts(@PageableDefault(page = 0, size = 3, sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable) { //sort = "createdAt", direction = Sort.Direction.DESC
+        return boardRepository.findAll(pageable);
     }
     @GetMapping("/api/post/{id}")
     public Board getPostOne(@PathVariable Long id) {
